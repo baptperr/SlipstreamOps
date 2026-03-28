@@ -310,11 +310,9 @@ footer {
 .offer-cta-teal:hover { background: var(--teal-lt); border-color: var(--teal-lt); }
 
 .offer-cta-soldout {
-  background: var(--off);
+  background: var(--white);
   color: #c0392b;
-  border: 1.5px solid #f5c6c2;
-  font-weight: 700;
-  letter-spacing: 0.02em;
+  border: 1.5px solid #c0392b;
   cursor: default;
 }
 .waitlist-link {
