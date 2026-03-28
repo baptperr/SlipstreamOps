@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tier 1 — The 7-Day Quick Win Sprint | Slipstream Ops</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    /* ── OFFER HERO ── */
+    .offer-hero {
+      padding: 8rem 2.5rem 5rem;
+      background: var(--off);
+      border-bottom: 1px solid var(--border);
+    }
+    .offer-hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 5rem;
+      align-items: start;
+    }
+    .offer-hero-left .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--grey-mid);
+      text-decoration: none;
+      margin-bottom: 1.75rem;
+      transition: color 0.2s;
+    }
+    .offer-hero-left .back-link:hover { color: var(--navy); }
+    .offer-hero-left h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .offer-hero-left .promise {
+      font-size: 1.05rem;
+      color: var(--grey-dk);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 560px;
+    }
+    .target-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .target-box-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.4rem;
+    }
+    .target-box p { font-size: 0.875rem; color: var(--grey-dk); line-height: 1.65; }
+
+    /* Sticky price card */
+    .price-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: var(--shadow-lg);
+      position: sticky;
+      top: 88px;
+    }
+    .price-card-tier {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.5rem;
+    }
+    .price-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+    }
+    .price-card-divider { height: 1px; background: var(--border); margin-bottom: 1.25rem; }
+    .price-big {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .price-sub { font-size: 0.8rem; color: var(--grey-mid); margin-bottom: 1.25rem; }
+    .price-recurring {
+      background: var(--off);
+      border-radius: 10px;
+      padding: 0.9rem 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .price-recurring-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-mid); margin-bottom: 0.25rem; }
+    .price-recurring-value { font-size: 0.9rem; font-weight: 600; color: var(--navy); }
+    .price-guarantee {
+      font-size: 0.78rem;
+      color: var(--grey-mid);
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+    .price-cta {
+      display: block;
+      text-align: center;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.9rem;
+      border-radius: 9px;
+      text-decoration: none;
+      transition: background 0.2s;
+      margin-bottom: 0.75rem;
+    }
+    .price-cta:hover { background: var(--navy-mid); }
+    .price-note { font-size: 0.76rem; color: var(--grey-mid); text-align: center; }
+
+    /* ── DETAIL SECTIONS ── */
+    .detail-section { padding: 5rem 2.5rem; }
+    .detail-section.alt { background: var(--off); }
+    .detail-inner { max-width: 1100px; margin: 0 auto; }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .detail-block {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+    }
+    .detail-section.alt .detail-block { background: var(--white); }
+    .detail-block-num {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.5rem;
+    }
+    .detail-block h4 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+    .detail-block p { font-size: 0.875rem; color: var(--grey-dk); line-height: 1.7; }
+
+    .deliverables-list {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .deliverable-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .deliverable-check {
+      width: 22px; height: 22px;
+      background: rgba(13,115,119,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--teal);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .deliverable-item h5 { font-size: 0.9rem; font-weight: 600; color: var(--navy); margin-bottom: 0.2rem; }
+    .deliverable-item p { font-size: 0.82rem; color: var(--grey-dk); line-height: 1.6; }
+
+    .bonus-list {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .bonus-item {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      padding: 1rem 1.25rem;
+      background: rgba(13,115,119,0.04);
+      border: 1px solid rgba(13,115,119,0.12);
+      border-radius: var(--radius);
+    }
+    .bonus-star { color: var(--teal); font-weight: 700; font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+    .bonus-item h5 { font-size: 0.9rem; font-weight: 600; color: var(--navy); margin-bottom: 0.15rem; }
+    .bonus-item p { font-size: 0.82rem; color: var(--grey-dk); line-height: 1.6; }
+
+    .guarantee-block {
+      margin-top: 2rem;
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 1.75rem 2rem;
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+    .guarantee-icon {
+      font-size: 1.5rem;
+      color: var(--teal);
+      flex-shrink: 0;
+      line-height: 1;
+    }
+    .guarantee-block h4 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
+    .guarantee-block p { font-size: 0.875rem; color: var(--grey-dk); line-height: 1.7; }
+
+    /* ── COMPARE SECTION ── */
+    .compare-section { padding: 5rem 2.5rem; background: var(--off); }
+    .compare-inner { max-width: 1160px; margin: 0 auto; }
+
+    @media (max-width: 900px) {
+      .offer-hero { padding: 7rem 1.25rem 3rem; }
+      .offer-hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .price-card { position: static; }
+      .detail-section { padding: 3.5rem 1.25rem; }
+      .detail-grid { grid-template-columns: 1fr; }
+      .compare-section { padding: 3.5rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="logo" href="index.html">Slipstream<span>Ops</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#offers">Services</a></li>
+      <li><a href="index.html#how">How it works</a></li>
+      <li><a href="https://tidycal.com/baptperr18/quick-win-intake" target="_blank" class="nav-cta">Book intake call</a></li>
+    </ul>
+  </nav>
+
+  <!-- OFFER HERO -->
+  <section class="offer-hero">
+    <div class="offer-hero-inner">
+      <div class="offer-hero-left">
+        <a class="back-link" href="index.html">&#8592; Back to all services</a>
+        <div class="eyebrow">Tier 1 &mdash; Entry Point</div>
+        <h1>The 7-Day Quick Win Sprint</h1>
+        <p class="promise">We identify and automate your top time-wasting tasks in one week flat — so your team stops doing grunt work and starts focusing on what actually moves the needle.</p>
+        <div class="target-box">
+          <div class="target-box-label">Best for</div>
+          <p>Founders and Operations Managers at 5–100 employee companies (&#8364;500K+ revenue) who are drowning in repetitive manual tasks, skeptical of AI hype, and want a fast, low-risk way to see real results before committing to anything bigger.</p>
+        </div>
+      </div>
+      <div class="price-card">
+        <div class="price-card-tier">Tier 1 &mdash; Entry Point</div>
+        <h3>The 7-Day Quick Win Sprint</h3>
+        <div class="price-card-divider"></div>
+        <div class="price-big">&#8364;2,000</div>
+        <div class="price-sub">one-time sprint fee</div>
+        <div class="price-recurring">
+          <div class="price-recurring-label">Then ongoing</div>
+          <div class="price-recurring-value">&#8364;200/month hosting &amp; maintenance</div>
+        </div>
+        <div class="price-guarantee">&#10003; 7-day delivery guarantee — or you don't pay the recurring fee until automations are live.</div>
+        <a class="price-cta" href="https://tidycal.com/baptperr18/quick-win-intake" target="_blank">Book your intake call</a>
+        <div class="price-note">20-min call &mdash; no commitment required</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT'S DELIVERED -->
+  <section class="detail-section">
+    <div class="detail-inner">
+      <div class="eyebrow">The Process</div>
+      <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;letter-spacing:-0.03em;color:var(--navy);line-height:1.2;margin-bottom:0.5rem;">How the sprint works</h2>
+      <p style="color:var(--grey-dk);font-size:0.95rem;max-width:580px;">Our "Rapid Task Elimination&trade;" approach uses a predefined catalog of proven, high-impact automations selected for your business — deployed in 7 days with zero fluff and zero scope creep.</p>
+      <div class="detail-grid">
+        <div class="detail-block">
+          <div class="detail-block-num">Days 1–2</div>
+          <h4>Async Proposal</h4>
+          <p>You fill out a short intake form. We map your best-fit automations from our proven quick-win library and deliver a written proposal outlining exactly what we'll automate and why — before we build anything.</p>
+        </div>
+        <div class="detail-block">
+          <div class="detail-block-num">Days 3–7</div>
+          <h4>Build &amp; Deploy</h4>
+          <p>We implement up to 10 task automations. No meetings, no back-and-forth — just delivery. If after reading the proposal you don't feel the quick wins are worth it, you walk away. No questions asked.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DELIVERABLES -->
+  <section class="detail-section alt">
+    <div class="detail-inner">
+      <div class="eyebrow">What you get</div>
+      <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;letter-spacing:-0.03em;color:var(--navy);line-height:1.2;">Everything included in the sprint</h2>
+      <div class="deliverables-list">
+        <div class="deliverable-item">
+          <div class="deliverable-check">&#10003;</div>
+          <div>
+            <h5>Rapid Task Elimination&trade; Implementation</h5>
+            <p>Up to 10 automations selected from our proven quick-win library, deployed in 7 days. No integration with core systems required — no complexity, no delays.</p>
+          </div>
+        </div>
+        <div class="deliverable-item">
+          <div class="deliverable-check">&#10003;</div>
+          <div>
+            <h5>Async Scoping Report</h5>
+            <p>A written proposal outlining exactly which tasks we're automating and why — delivered before we start building so you have full visibility and can opt out.</p>
+          </div>
+        </div>
+        <div class="deliverable-item">
+          <div class="deliverable-check">&#10003;</div>
+          <div>
+            <h5>Ready-to-Run Automations</h5>
+            <p>Everything delivered and functional within the week. No integration complexity, no delays — tools that work from day one.</p>
+          </div>
+        </div>
+        <div class="deliverable-item">
+          <div class="deliverable-check">&#10003;</div>
+          <div>
+            <h5>"AI First Steps" Handoff Guide</h5>
+            <p>Documentation so your team knows exactly how each automation works and how to use it from the moment we hand over.</p>
+          </div>
+        </div>
+      </div>
+      <div class="bonus-list">
+        <div class="bonus-item">
+          <div class="bonus-star">+</div>
+          <div>
+            <h5>Bonus: Quick Win Scorecard</h5>
+            <p>A prioritized list of your next 10 automation opportunities beyond the sprint — so you know exactly what to tackle when you're ready to go further.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUARANTEES -->
+  <section class="detail-section">
+    <div class="detail-inner">
+      <div class="eyebrow">Our Guarantees</div>
+      <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;letter-spacing:-0.03em;color:var(--navy);line-height:1.2;">We put our money where our mouth is</h2>
+      <div class="guarantee-block" style="margin-top:2rem;">
+        <div class="guarantee-icon">&#10003;</div>
+        <div>
+          <h4>7-Day Delivery Guarantee</h4>
+          <p>All automations are live within 7 days of intake, or you don't pay the recurring &#8364;200/month fee until they are. No exceptions, no excuses.</p>
+        </div>
+      </div>
+      <div class="guarantee-block">
+        <div class="guarantee-icon">&#10003;</div>
+        <div>
+          <h4>Fit or Walk</h4>
+          <p>After the async proposal, if you don't feel the quick wins are worth it, you cancel before we build — no questions asked. You only pay if we move forward.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARE -->
+  <section class="compare-section">
+    <div class="compare-inner">
+      <div class="section-header">
+        <div class="eyebrow">Compare</div>
+        <h2>All our services</h2>
+        <p>You're viewing Tier 1. See how it compares to our other options.</p>
+      </div>
+      <div class="offers-grid">
+
+        <!-- TIER 1 — ACTIVE -->
+        <div class="offer-card active-card">
+          <div class="offer-tier-label">Tier 1 &mdash; Currently viewing</div>
+          <div class="offer-name">The 7-Day Quick Win Sprint</div>
+          <div class="offer-divider"></div>
+          <ul class="offer-features">
+            <li><span class="feature-check">&#10003;</span> Up to 10 automations deployed in 7 days</li>
+            <li><span class="feature-check">&#10003;</span> Async scoping report before we build anything</li>
+            <li><span class="feature-check">&#10003;</span> Ready-to-run automations — no core system integration</li>
+            <li><span class="feature-check">&#10003;</span> Handoff guide for your team</li>
+            <li><span class="feature-check">&#10003;</span> Quick Win Scorecard: next 10 opportunities</li>
+          </ul>
+          <div class="offer-price-box">
+            <div class="offer-price">&#8364;2,000</div>
+            <div class="offer-price-note">one-time &middot; then &#8364;200/month</div>
+          </div>
+          <a class="offer-cta offer-cta-teal" href="https://tidycal.com/baptperr18/quick-win-intake" target="_blank">Book intake call</a>
+        </div>
+
+        <!-- TIER 2 — GREYED -->
+        <div class="offer-card greyed soldout">
+          <div class="featured-badge">Most popular</div>
+          <div class="offer-tier-label">Tier 2</div>
+          <div class="offer-name">The 9-Week Workflow Accelerator</div>
+          <div class="offer-divider"></div>
+          <ul class="offer-features">
+            <li><span class="feature-check">&#10003;</span> Full workflow redesign + system integration</li>
+            <li><span class="feature-check">&#10003;</span> Live scoping and onboarding sessions</li>
+            <li><span class="feature-check">&#10003;</span> Efficiency tracker dashboard</li>
+            <li><span class="feature-check">&#10003;</span> Continuous adaptation</li>
+            <li><span class="feature-check">&#10003;</span> 90-day post-launch review</li>
+          </ul>
+          <div class="offer-price-box">
+            <div class="offer-price">&#8364;0 upfront</div>
+            <div class="offer-price-note">25% of monthly time value recovered</div>
+          </div>
+          <div class="offer-cta offer-cta-soldout">Sold out</div>
+          <a class="waitlist-link" href="tier2.html">View details &amp; join waiting list</a>
+        </div>
+
+        <!-- TIER 3 — GREYED -->
+        <div class="offer-card greyed soldout">
+          <div class="offer-tier-label">Tier 3</div>
+          <div class="offer-name">The 21-Day VIP Operation Rebuild</div>
+          <div class="offer-divider"></div>
+          <ul class="offer-features">
+            <li><span class="feature-check">&#10003;</span> In-person discovery at your offices</li>
+            <li><span class="feature-check">&#10003;</span> Fully custom automations + system integration</li>
+            <li><span class="feature-check">&#10003;</span> In-person launch and team onboarding</li>
+            <li><span class="feature-check">&#10003;</span> Human support during business hours</li>
+            <li><span class="feature-check">&#10003;</span> Strategic AI roadmap + competitor audit</li>
+          </ul>
+          <div class="offer-price-box">
+            <div class="offer-price">2 months' value</div>
+            <div class="offer-price-note">upfront &middot; then 40% monthly time value</div>
+          </div>
+          <div class="offer-cta offer-cta-soldout">Sold out</div>
+          <a class="waitlist-link" href="tier3.html">View details &amp; join waiting list</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a class="footer-logo" href="index.html">Slipstream<span>Ops</span></a>
+    <div class="footer-copy">&copy; 2025 Slipstream Ops. All rights reserved.</div>
+  </footer>
+
+</body>
+</html>

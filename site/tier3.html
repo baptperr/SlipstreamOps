@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tier 3 — The 21-Day VIP Operation Rebuild | Slipstream Ops</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    .offer-hero {
+      padding: 8rem 2.5rem 5rem;
+      background: var(--off);
+      border-bottom: 1px solid var(--border);
+    }
+    .offer-hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 5rem;
+      align-items: start;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--grey-mid);
+      text-decoration: none;
+      margin-bottom: 1.75rem;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--navy); }
+    .offer-hero-left h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .offer-hero-left .promise {
+      font-size: 1.05rem;
+      color: var(--grey-dk);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 560px;
+    }
+    .target-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+    }
+    .target-box-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.4rem;
+    }
+    .target-box p { font-size: 0.875rem; color: var(--grey-dk); line-height: 1.65; }
+
+    /* WAITLIST CARD */
+    .waitlist-card {
+      background: var(--navy);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: var(--shadow-lg);
+      position: sticky;
+      top: 88px;
+      color: var(--white);
+    }
+    .waitlist-card-badge {
+      display: inline-block;
+      background: #c0392b;
+      color: var(--white);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.28rem 0.8rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+    }
+    .waitlist-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+    .waitlist-card .wl-sub {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+    .waitlist-card-divider { height: 1px; background: rgba(255,255,255,0.12); margin-bottom: 1.5rem; }
+    .price-display { margin-bottom: 1.5rem; }
+    .price-display .price-big {
+      font-size: 1.7rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 0.25rem;
+    }
+    .price-display .price-sub { font-size: 0.8rem; color: rgba(255,255,255,0.5); }
+    .wl-form-note { font-size: 0.82rem; color: rgba(255,255,255,0.55); margin-bottom: 1rem; line-height: 1.5; }
+    .wl-cta {
+      display: block;
+      text-align: center;
+      background: var(--teal);
+      color: var(--white);
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.9rem;
+      border-radius: 9px;
+      text-decoration: none;
+      transition: background 0.2s;
+      margin-bottom: 0.75rem;
+    }
+    .wl-cta:hover { background: var(--teal-lt); }
+    .wl-note { font-size: 0.75rem; color: rgba(255,255,255,0.35); text-align: center; }
+
+    /* DETAIL SECTIONS */
+    .detail-section { padding: 5rem 2.5rem; }
+    .detail-section.alt { background: var(--off); }
+    .detail-inner { max-width: 1100px; margin: 0 auto; }
+
+    .timeline { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1px; background: var(--border); border-radius: 14px; overflow: hidden; }
+    .timeline-item { background: var(--white); padding: 1.5rem 1.75rem; display: flex; gap: 1.5rem; align-items: flex-start; }
+    .timeline-week { min-width: 90px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); padding-top: 0.15rem; }
+    .timeline-item h4 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 0.3rem; }
+    .timeline-item p { font-size: 0.84rem; color: var(--grey-dk); line-height: 1.65; }
+
+    .deliverables-list { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 0.75rem; }
+    .deliverable-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .deliverable-check {
+      width: 22px; height: 22px;
+      background: rgba(13,115,119,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--teal);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .deliverable-item h5 { font-size: 0.9rem; font-weight: 600; color: var(--navy); margin-bottom: 0.2rem; }
+    .deliverable-item p { font-size: 0.82rem; color: var(--grey-dk); line-height: 1.6; }
+
+    .bonus-list { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem; }
+    .bonus-item {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      padding: 1rem 1.25rem;
+      background: rgba(13,115,119,0.04);
+      border: 1px solid rgba(13,115,119,0.12);
+      border-radius: var(--radius);
+    }
+    .bonus-star { color: var(--teal); font-weight: 700; font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+    .bonus-item h5 { font-size: 0.9rem; font-weight: 600; color: var(--navy); margin-bottom: 0.15rem; }
+    .bonus-item p { font-size: 0.82rem; color: var(--grey-dk); line-height: 1.6; }
+
+    .guarantee-block {
+      margin-top: 1.5rem;
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 1.75rem 2rem;
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+    .guarantee-icon { font-size: 1.3rem; color: var(--teal); flex-shrink: 0; font-weight: 700; line-height: 1.4; }
+    .guarantee-block h4 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
+    .guarantee-block p { font-size: 0.875rem; color: var(--grey-dk); line-height: 1.7; }
+
+    .compare-section { padding: 5rem 2.5rem; background: var(--off); }
+    .compare-inner { max-width: 1160px; margin: 0 auto; }
+
+    @media (max-width: 900px) {
+      .offer-hero { padding: 7rem 1.25rem 3rem; }
+      .offer-hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .waitlist-card { position: static; }
+      .detail-section { padding: 3.5rem 1.25rem; }
+      .compare-section { padding: 3.5rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="logo" href="index.html">Slipstream<span>Ops</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#offers">Services</a></li>
+      <li><a href="index.html#how">How it works</a></li>
+      <li><a href="https://tidycal.com/baptperr18/senior-discovery" target="_blank" class="nav-cta">Join waiting list</a></li>
+    </ul>
+  </nav>
+
+  <!-- OFFER HERO -->
+  <section class="offer-hero">
+    <div class="offer-hero-inner">
+      <div class="offer-hero-left">
+        <a class="back-link" href="index.html">&#8592; Back to all services</a>
+        <div class="eyebrow">Tier 3 &mdash; VIP Overhaul</div>
+        <h1>The 21-Day VIP Operation Rebuild</h1>
+        <p class="promise">We come to you, map your full operation in person, and deliver a complete AI workflow overhaul in 21 days — then stay on as your ongoing AI partner to keep it compounding.</p>
+        <div class="target-box">
+          <div class="target-box-label">Best for</div>
+          <p>CEOs and Business Owners at 20–500 employee companies (&#8364;1M+ revenue) who are serious about AI transformation at scale, want dedicated senior attention, and understand that the fastest path to results is bringing in the right people and doing it right the first time.</p>
+        </div>
+      </div>
+      <div class="waitlist-card">
+        <div class="waitlist-card-badge">Currently sold out</div>
+        <h3>The 21-Day VIP Operation Rebuild</h3>
+        <p class="wl-sub">This cohort is full. The next one is starting soon — get on the waiting list and we'll reach out as soon as a spot opens.</p>
+        <div class="waitlist-card-divider"></div>
+        <div class="price-display">
+          <div class="price-big">2 months' time value</div>
+          <div class="price-sub">upfront &middot; then 40% of monthly time value recovered</div>
+        </div>
+        <p class="wl-form-note">A 45-minute senior discovery call — we'll calculate your time value baseline and tell you exactly what the overhaul would cost before you sign anything.</p>
+        <a class="wl-cta" href="https://tidycal.com/baptperr18/senior-discovery" target="_blank">Join the waiting list</a>
+        <div class="wl-note">No commitment. We'll contact you when a spot opens.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="detail-section">
+    <div class="detail-inner">
+      <div class="eyebrow">The Process</div>
+      <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;letter-spacing:-0.03em;color:var(--navy);line-height:1.2;margin-bottom:0.5rem;">How the 21 days unfold</h2>
+      <p style="color:var(--grey-dk);font-size:0.95rem;max-width:580px;">Our "Total Operation Automation&trade;" combines deep operational discovery, fully custom AI development, core system integration, and an embedded ongoing partnership.</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-week">Days 1–5</div>
+          <div>
+            <h4>In-Person Discovery</h4>
+            <p>We come to your offices. Live sessions with your team to map every key workflow, quantify time value, and define transformation priorities. Not a Zoom call — real presence, real accountability.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-week">Days 6–18</div>
+          <div>
+            <h4>Build, Integrate &amp; Test</h4>
+            <p>Full custom automation development, core system integration, and internal testing with your team. We build against the workflows we discovered in person — fully tailored, not adapted from a template.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-week">Days 19–21</div>
+          <div>
+            <h4>In-Person Launch &amp; Onboarding</h4>
+            <p>We return to your offices for live tool walkthroughs, team onboarding, and go-live. Every key user leaves day 21 knowing exactly what the tools do and how to use them.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-week">Ongoing</div>
+          <div>
+            <h4>Embedded AI Partnership</h4>
+            <p>Human support during work hours, continuous chatbot support, ongoing adaptation and minor redevelopment as your operation scales. Your AI capability grows with your business rather than degrading over time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DELIVERABLES -->
+  <section class="detail-section alt">
+    <div class="detail-inner">
+      <div class="eyebrow">What you get</div>
+      <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;letter-spacing:-0.03em;color:var(--navy);line-height:1.2;">Everything included</h2>
+      <div class="deliverables-list">
+        <div class="deliverable-item">
+          <div class="deliverable-check">&#10003;</div>
+          <div>
+            <h5>Total Operation Automation&trade; Implementation</h5>
+            <p>Complete overhaul of your highest-cost, lowest-value workflows with fully custom AI automations, integrated into your core systems.</p>
+          </div>
+        </div>
+        <div class="deliverable-item">
+          <div class="deliverable-check">&#10003;</div>
+          <div>
+            <h5>In-Person Scoping &amp; Onboarding</h5>
+            <p>Senior team on-site at both discovery and launch. Real presence, real accountability — not a handoff doc and a Zoom call.</p>
+          </div>
+        </div>
+        <div class="deliverable-item">
+          <div class="deliverable-check">&#10003;</div>
+          <div>
+            <h5>Efficiency Tracker Dashboard</h5>
+            <p>Live operational intelligence showing time recovered, tasks automated, and value generated. The foundation of your recurring fee calculation — full transparency.</p>
+          </div>
+        </div>
+        <div class="deliverable-item">
+          <div class="deliverable-check">&#10003;</div>
+          <div>
+            <h5>Continuous AI Chatbot Support + Human Support During Work Hours</h5>
+            <p>Async support for daily questions, plus dedicated human support during business hours. The most intensive support tier we offer.</p>
+          </div>
+        </div>
+        <div class="deliverable-item">
+          <div class="deliverable-check">&#10003;</div>
+          <div>
+            <h5>Continuous Adaptation &amp; Minor Redevelopment</h5>
+            <p>As your business grows and workflows shift, we rebuild where needed — not just tweak. Your automation stays current with your operation, not with where it was 12 months ago.</p>
+          </div>
+        </div>
+        <div class="deliverable-item">
+          <div class="deliverable-check">&#10003;</div>
+          <div>
+            <h5>"AI Adoption Accelerator" Kit</h5>
+            <p>Enterprise-grade onboarding materials — checklists, quick-start guides, and role-specific cheat sheets for every team that touches the new systems.</p>
+          </div>
+        </div>
+        <div class="deliverable-item">
+          <div class="deliverable-check">&#10003;</div>
+          <div>
+            <h5>Strategic AI Roadmap Session</h5>
+            <p>A dedicated session post-launch to map your next 18 months of AI-driven operational expansion. Where do you go from here, and what will it be worth?</p>
+          </div>
+        </div>
+      </div>
+      <div class="bonus-list">
+        <div class="bonus-item">
+          <div class="bonus-star">+</div>
+          <div>
+            <h5>Bonus: Competitor AI Readiness Audit</h5>
+            <p>We assess how your key competitors are likely using or positioned to use AI — and where you can build a durable operational moat before they catch up.</p>
+          </div>
+        </div>
+        <div class="bonus-item">
+          <div class="bonus-star">+</div>
+          <div>
+            <h5>Bonus: Priority Queue Access</h5>
+            <p>As a VIP client, new automation requests and redevelopment go to the front of the line. No waiting behind Tier 1 or 2 clients.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUARANTEES -->
+  <section class="detail-section">
+    <div class="detail-inner">
+      <div class="eyebrow">Our Guarantees</div>
+      <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;letter-spacing:-0.03em;color:var(--navy);line-height:1.2;">Skin in the game at every level</h2>
+      <div class="guarantee-block" style="margin-top:2rem;">
+        <div class="guarantee-icon">&#10003;</div>
+        <div>
+          <h4>In-Person Commitment Guarantee</h4>
+          <p>If we don't show up on-site for both scoping and launch as agreed, you receive a full refund of the upfront fee. No excuses, no partial refunds.</p>
+        </div>
+      </div>
+      <div class="guarantee-block">
+        <div class="guarantee-icon">&#10003;</div>
+        <div>
+          <h4>Continuous Adaptation Promise</h4>
+          <p>For as long as you're a client, we adapt and redevelop your automations as your operation evolves — no surprise invoices for keeping your tools relevant.</p>
+        </div>
+      </div>
+      <div class="guarantee-block">
+        <div class="guarantee-icon">&#10003;</div>
+        <div>
+          <h4>Results Accountability</h4>
+          <p>Your recurring fee is tied to documented time value recovered shown in the dashboard. If the numbers are there, so is our invoice — nothing more. If we underdeliver, your fee reflects that.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARE -->
+  <section class="compare-section">
+    <div class="compare-inner">
+      <div class="section-header">
+        <div class="eyebrow">Compare</div>
+        <h2>All our services</h2>
+        <p>You're viewing Tier 3. See how it compares to our other options.</p>
+      </div>
+      <div class="offers-grid">
+
+        <!-- TIER 1 — GREYED -->
+        <div class="offer-card greyed">
+          <div class="offer-tier-label">Tier 1</div>
+          <div class="offer-name">The 7-Day Quick Win Sprint</div>
+          <div class="offer-divider"></div>
+          <ul class="offer-features">
+            <li><span class="feature-check">&#10003;</span> Up to 10 automations in 7 days</li>
+            <li><span class="feature-check">&#10003;</span> Async scoping report</li>
+            <li><span class="feature-check">&#10003;</span> Ready-to-run, no core system integration</li>
+            <li><span class="feature-check">&#10003;</span> Handoff guide</li>
+            <li><span class="feature-check">&#10003;</span> Quick Win Scorecard</li>
+          </ul>
+          <div class="offer-price-box">
+            <div class="offer-price">&#8364;2,000</div>
+            <div class="offer-price-note">one-time &middot; then &#8364;200/month</div>
+          </div>
+          <a class="offer-cta offer-cta-outline" href="tier1.html">View details</a>
+        </div>
+
+        <!-- TIER 2 — GREYED -->
+        <div class="offer-card greyed soldout">
+          <div class="featured-badge">Most popular</div>
+          <div class="offer-tier-label">Tier 2</div>
+          <div class="offer-name">The 9-Week Workflow Accelerator</div>
+          <div class="offer-divider"></div>
+          <ul class="offer-features">
+            <li><span class="feature-check">&#10003;</span> Full workflow redesign + system integration</li>
+            <li><span class="feature-check">&#10003;</span> Live scoping and onboarding sessions</li>
+            <li><span class="feature-check">&#10003;</span> Efficiency tracker dashboard</li>
+            <li><span class="feature-check">&#10003;</span> Continuous adaptation</li>
+            <li><span class="feature-check">&#10003;</span> 90-day post-launch review</li>
+          </ul>
+          <div class="offer-price-box">
+            <div class="offer-price">&#8364;0 upfront</div>
+            <div class="offer-price-note">25% of monthly time value recovered</div>
+          </div>
+          <div class="offer-cta offer-cta-soldout">Sold out</div>
+          <a class="waitlist-link" href="tier2.html">View details &amp; join waiting list</a>
+        </div>
+
+        <!-- TIER 3 — ACTIVE -->
+        <div class="offer-card active-card soldout">
+          <div class="offer-tier-label">Tier 3 &mdash; Currently viewing</div>
+          <div class="offer-name">The 21-Day VIP Operation Rebuild</div>
+          <div class="offer-divider"></div>
+          <ul class="offer-features">
+            <li><span class="feature-check">&#10003;</span> In-person discovery at your offices</li>
+            <li><span class="feature-check">&#10003;</span> Fully custom automations + system integration</li>
+            <li><span class="feature-check">&#10003;</span> In-person launch and team onboarding</li>
+            <li><span class="feature-check">&#10003;</span> Human support during business hours</li>
+            <li><span class="feature-check">&#10003;</span> Strategic AI roadmap + competitor audit</li>
+          </ul>
+          <div class="offer-price-box">
+            <div class="offer-price">2 months' value</div>
+            <div class="offer-price-note">upfront &middot; then 40% monthly time value</div>
+          </div>
+          <div class="offer-cta offer-cta-soldout">Sold out</div>
+          <a class="waitlist-link" href="https://tidycal.com/baptperr18/senior-discovery" target="_blank">Join the waiting list</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a class="footer-logo" href="index.html">Slipstream<span>Ops</span></a>
+    <div class="footer-copy">&copy; 2025 Slipstream Ops. All rights reserved.</div>
+  </footer>
+
+</body>
+</html>
