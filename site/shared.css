@@ -180,7 +180,7 @@ footer {
 }
 
 .offer-card.soldout {
-  background: var(--off);
+  background: var(--white);
 }
 
 .featured-badge {
@@ -269,6 +269,12 @@ footer {
 .offer-price-note {
   font-size: 0.77rem;
   color: var(--grey-mid);
+}
+.offer-price-recurring {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-top: 0.4rem;
 }
 .offer-guarantee {
   font-size: 0.75rem;
