@@ -326,6 +326,68 @@ footer {
 }
 .waitlist-link:hover { color: var(--teal-lt); }
 
+/* ── NAV DROPDOWN ── */
+.nav-dropdown { position: relative; }
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  padding: 0.4rem;
+  min-width: 300px;
+  display: none;
+  flex-direction: column;
+  z-index: 200;
+}
+.nav-dropdown:hover .nav-dropdown-menu { display: flex; }
+.nav-dropdown-menu a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding: 0.65rem 0.9rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text) !important;
+  font-size: 0.84rem !important;
+  font-weight: 500 !important;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.nav-dropdown-menu a:hover { background: var(--off); color: var(--navy) !important; }
+.dropdown-tier {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+/* ── SOLD-OUT BOOK BUTTON ── */
+.offer-cta-book-disabled {
+  display: block;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.8rem;
+  border-radius: 9px;
+  background: var(--off);
+  color: var(--grey-mid);
+  border: 1.5px solid var(--border);
+  cursor: not-allowed;
+}
+.soldout-tag {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #c0392b;
+  font-weight: 600;
+  margin-top: 0.4rem;
+  letter-spacing: 0.02em;
+}
+
 /* ── BOOK CALL BLOCK (shared) ── */
 .book-section { padding: 6rem 2.5rem; background: var(--white); }
 .book-inner { max-width: 720px; margin: 0 auto; }

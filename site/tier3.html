@@ -124,7 +124,7 @@
       margin-bottom: 0.75rem;
     }
     .wl-cta:hover { background: var(--teal-lt); }
-    .wl-note { font-size: 0.75rem; color: rgba(255,255,255,0.35); text-align: center; }
+    .wl-note { font-size: 0.75rem; color: rgba(255,255,255,0.35); text-align: center; white-space: nowrap; }
 
     /* DETAIL SECTIONS */
     .detail-section { padding: 5rem 2.5rem; }
@@ -133,7 +133,7 @@
 
     .timeline { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1px; background: var(--border); border-radius: 14px; overflow: hidden; }
     .timeline-item { background: var(--white); padding: 1.5rem 1.75rem; display: flex; gap: 1.5rem; align-items: flex-start; }
-    .timeline-week { min-width: 90px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); padding-top: 0.15rem; }
+    .timeline-week { min-width: 90px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); padding-top: 0.15rem; white-space: nowrap; }
     .timeline-item h4 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 0.3rem; }
     .timeline-item p { font-size: 0.84rem; color: var(--grey-dk); line-height: 1.65; }
 
@@ -208,7 +208,13 @@
   <nav>
     <a class="logo" href="index.html">Slipstream<span>Ops</span></a>
     <ul class="nav-links">
-      <li><a href="index.html#offers">Services</a></li>
+      <li class="nav-dropdown"><a href="index.html#offers">Services</a>
+        <div class="nav-dropdown-menu">
+          <a href="tier1.html"><span class="dropdown-tier">Tier 1</span>The 7-Day Quick Win Sprint</a>
+          <a href="tier2.html"><span class="dropdown-tier">Tier 2</span>The 9-Week Workflow Accelerator</a>
+          <a href="tier3.html"><span class="dropdown-tier">Tier 3</span>The 21-Day VIP Operation Rebuild</a>
+        </div>
+      </li>
       <li><a href="index.html#how">How it works</a></li>
       <li><a href="https://tidycal.com/baptperr18/senior-discovery" target="_blank" class="nav-cta">Join waiting list</a></li>
     </ul>
@@ -237,7 +243,7 @@
           <div class="price-sub">upfront &middot; then 40% of monthly time value recovered</div>
         </div>
         <p class="wl-form-note">A 45-minute senior discovery call — we'll calculate your time value baseline and tell you exactly what the overhaul would cost before you sign anything.</p>
-        <a class="wl-cta" href="https://tidycal.com/baptperr18/senior-discovery" target="_blank">Join the waiting list</a>
+        <a class="wl-cta" href="waitlist.html?tier=3">Join the waiting list</a>
         <div class="wl-note">No commitment. We'll contact you when a spot opens.</div>
       </div>
     </div>
@@ -412,11 +418,11 @@
             <div class="offer-price">&#8364;2,000</div>
             <div class="offer-price-note">one-time &middot; then &#8364;200/month</div>
           </div>
-          <a class="offer-cta offer-cta-outline" href="tier1.html">View details</a>
+          <a class="offer-cta offer-cta-outline" href="tier1.html">Learn more</a>
         </div>
 
-        <!-- TIER 2 — GREYED -->
-        <div class="offer-card soldout">
+        <!-- TIER 2 -->
+        <div class="offer-card">
           <div class="featured-badge">Most popular</div>
           <div class="offer-tier-label">Tier 2</div>
           <div class="offer-name">The 9-Week Workflow Accelerator</div>
@@ -432,12 +438,11 @@
             <div class="offer-price">&#8364;0 upfront</div>
             <div class="offer-price-recurring">25% of monthly time value recovered</div>
           </div>
-          <div class="offer-cta offer-cta-soldout">Sold out</div>
-          <a class="waitlist-link" href="tier2.html">View details &amp; join waiting list</a>
+          <a class="offer-cta offer-cta-outline" href="tier2.html">Learn more</a>
         </div>
 
         <!-- TIER 3 — ACTIVE -->
-        <div class="offer-card active-card soldout">
+        <div class="offer-card active-card">
           <div class="offer-tier-label">Tier 3 &mdash; Currently viewing</div>
           <div class="offer-name">The 21-Day VIP Operation Rebuild</div>
           <div class="offer-divider"></div>
@@ -450,12 +455,11 @@
             <li><span class="feature-check">&#10003;</span> Strategic AI roadmap + competitor audit</li>
           </ul>
           <div class="offer-price-box">
-            <div class="offer-price">2 months' value</div>
-            <div class="offer-price-note">upfront</div>
+            <div class="offer-price">2 months' value upfront</div>
             <div class="offer-price-recurring">then 40% of monthly time value recovered</div>
           </div>
-          <div class="offer-cta offer-cta-soldout">Sold out</div>
-          <a class="waitlist-link" href="https://tidycal.com/baptperr18/senior-discovery" target="_blank">Join the waiting list</a>
+          <div class="offer-cta-book-disabled">Book now</div>
+          <div class="soldout-tag">Sold out</div>
         </div>
 
       </div>
