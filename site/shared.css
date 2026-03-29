@@ -380,16 +380,13 @@ footer {
   cursor: not-allowed;
 }
 .soldout-tag {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 0.75rem;
+  text-align: center;
+  font-size: 0.78rem;
   margin-top: 0.5rem;
 }
 .soldout-tag span {
   color: #c0392b;
   font-weight: 600;
-  letter-spacing: 0.02em;
 }
 .soldout-tag a {
   color: var(--teal);
