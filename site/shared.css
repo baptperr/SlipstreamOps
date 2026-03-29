@@ -380,13 +380,24 @@ footer {
   cursor: not-allowed;
 }
 .soldout-tag {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   font-size: 0.75rem;
+  margin-top: 0.5rem;
+}
+.soldout-tag span {
   color: #c0392b;
   font-weight: 600;
-  margin-top: 0.4rem;
   letter-spacing: 0.02em;
 }
+.soldout-tag a {
+  color: var(--teal);
+  text-decoration: underline;
+  font-weight: 500;
+  cursor: pointer;
+}
+.soldout-tag a:hover { color: var(--teal-lt); }
 
 /* ── BOOK CALL BLOCK (shared) ── */
 .book-section { padding: 6rem 2.5rem; background: var(--white); }
