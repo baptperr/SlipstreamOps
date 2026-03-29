@@ -259,10 +259,10 @@ footer {
   margin-bottom: 1.25rem;
 }
 .offer-price {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--navy);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   line-height: 1.2;
   margin-bottom: 0.2rem;
 }
