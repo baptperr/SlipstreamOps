@@ -116,8 +116,9 @@ footer {
 .section-header p {
   font-size: 1rem;
   color: var(--grey-dk);
-  max-width: 520px;
+  max-width: 720px;
   margin: 0 auto;
+  white-space: nowrap;
 }
 
 .btn-primary {
