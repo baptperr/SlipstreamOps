@@ -48,6 +48,13 @@ nav {
   color: var(--navy);
   text-decoration: none;
   letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.logo-img {
+  height: 32px;
+  width: auto;
 }
 .logo span { color: var(--teal); }
 
