@@ -374,6 +374,17 @@ footer {
   color: var(--teal);
 }
 
+.nav-dropdown-menu.nav-market-menu a {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+.nav-dropdown-menu.nav-market-menu .dropdown-tier {
+  font-size: 1rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
 /* ── SOLD-OUT BOOK BUTTON ── */
 .offer-cta-book-disabled {
   display: block;

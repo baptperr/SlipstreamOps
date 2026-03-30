@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tier 2 — Le 9-Week AI Workflow Accelerator | Slipstream Ops</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <style>
+    .offer-hero {
+      padding: 8rem 2.5rem 5rem;
+      background: var(--off);
+      border-bottom: 1px solid var(--border);
+    }
+    .offer-hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 5rem;
+      align-items: start;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--grey-mid);
+      text-decoration: none;
+      margin-bottom: 1.75rem;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--navy); }
+    .offer-hero-left h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--navy);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .offer-hero-left .promise {
+      font-size: 1.05rem;
+      color: var(--grey-dk);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 560px;
+    }
+    .target-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+    }
+    .target-box-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.4rem;
+    }
+    .target-box p { font-size: 0.875rem; color: var(--grey-dk); line-height: 1.65; }
+
+    /* WAITLIST CARD */
+    .waitlist-card {
+      background: var(--navy);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: var(--shadow-lg);
+      position: sticky;
+      top: 88px;
+      color: var(--white);
+    }
+    .waitlist-card-badge {
+      display: inline-block;
+      background: #c0392b;
+      color: var(--white);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.28rem 0.8rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+    }
+    .waitlist-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+    .waitlist-card .wl-sub {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+    .waitlist-card-divider { height: 1px; background: rgba(255,255,255,0.12); margin-bottom: 1.5rem; }
+    .price-display { margin-bottom: 1.5rem; }
+    .price-display .price-big {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .price-display .price-sub { font-size: 0.8rem; color: rgba(255,255,255,0.5); }
+    .wl-form-note {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+    .wl-cta {
+      display: block;
+      text-align: center;
+      background: var(--teal);
+      color: var(--white);
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.9rem;
+      border-radius: 9px;
+      text-decoration: none;
+      transition: background 0.2s;
+      margin-bottom: 0.75rem;
+    }
+    .wl-cta:hover { background: var(--teal-lt); }
+    .wl-note { font-size: 0.75rem; color: rgba(255,255,255,0.35); text-align: center; }
+
+    /* DETAIL SECTIONS */
+    .detail-section { padding: 5rem 2.5rem; }
+    .detail-section.alt { background: var(--off); }
+    .detail-inner { max-width: 1100px; margin: 0 auto; }
+
+    .timeline {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .timeline-item {
+      background: var(--white);
+      padding: 1.5rem 1.75rem;
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+    .timeline-week {
+      min-width: 90px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      padding-top: 0.15rem;
+      white-space: nowrap;
+    }
+    .timeline-item h4 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 0.3rem; }
+    .timeline-item p { font-size: 0.84rem; color: var(--grey-dk); line-height: 1.65; }
+
+    .deliverables-list { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 0.75rem; }
+    .deliverable-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .deliverable-check {
+      width: 22px; height: 22px;
+      background: rgba(13,115,119,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--teal);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .deliverable-item h5 { font-size: 0.9rem; font-weight: 600; color: var(--navy); margin-bottom: 0.2rem; }
+    .deliverable-item p { font-size: 0.82rem; color: var(--grey-dk); line-height: 1.6; }
+
+    .bonus-list { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem; }
+    .bonus-item {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      padding: 1rem 1.25rem;
+      background: rgba(13,115,119,0.04);
+      border: 1px solid rgba(13,115,119,0.12);
+      border-radius: var(--radius);
+    }
+    .bonus-star { color: var(--teal); font-weight: 700; font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+    .bonus-item h5 { font-size: 0.9rem; font-weight: 600; color: var(--navy); margin-bottom: 0.15rem; }
+    .bonus-item p { font-size: 0.82rem; color: var(--grey-dk); line-height: 1.6; }
+
+    .guarantee-block {
+      margin-top: 1.5rem;
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 1.75rem 2rem;
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+    .guarantee-icon { font-size: 1.3rem; color: var(--teal); flex-shrink: 0; font-weight: 700; line-height: 1.4; }
+    .guarantee-block h4 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
+    .guarantee-block p { font-size: 0.875rem; color: var(--grey-dk); line-height: 1.7; }
+
+    .compare-section { padding: 5rem 2.5rem; background: var(--off); }
+    .compare-inner { max-width: 1160px; margin: 0 auto; }
+
+    @media (max-width: 900px) {
+      .offer-hero { padding: 7rem 1.25rem 3rem; }
+      .offer-hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .waitlist-card { position: static; }
+      .detail-section { padding: 3.5rem 1.25rem; }
+      .compare-section { padding: 3.5rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="logo" href="index-fr.html"><img src="logo.png" alt="" class="logo-img" />Slipstream&nbsp;<span>Ops</span></a>
+    <ul class="nav-links">
+      <li class="nav-dropdown"><a href="index-fr.html#offers">Services</a>
+        <div class="nav-dropdown-menu">
+          <a href="tier1-fr.html"><span class="dropdown-tier">Tier 1</span>Le 7-Day Task Automation Sprint</a>
+          <a href="tier2-fr.html"><span class="dropdown-tier">Tier 2</span>Le 9-Week AI Workflow Accelerator</a>
+          <a href="tier3-fr.html"><span class="dropdown-tier">Tier 3</span>Le 21-Day VIP AI Workflow Overhaul</a>
+        </div>
+      </li>
+      <li><a href="index-fr.html#how">Comment ça marche</a></li>
+      <li class="nav-dropdown">
+        <a href="#">Market (FR)</a>
+        <div class="nav-dropdown-menu nav-market-menu">
+          <a href="tier2.html"><span class="dropdown-tier"></span>🇺🇸 USA ($)</a>
+          <a href="tier2-fr.html"><span class="dropdown-tier"></span>🇫🇷 France (€)</a>
+        </div>
+      </li>
+      <li><a href="waitlist-fr.html" class="nav-cta">Rejoindre la liste d'attente</a></li>
+    </ul>
+  </nav>
+
+  <!-- OFFER HERO -->
+  <section class="offer-hero">
+    <div class="offer-hero-inner">
+      <div class="offer-hero-left">
+        <a class="back-link" href="index-fr.html">&#8592; Retour aux services</a>
+        <div class="eyebrow">Tier 2 &mdash; Transformation Principale</div>
+        <h1>Le 9-Week AI Workflow Accelerator</h1>
+        <p class="promise">Nous redessinons et automatisons vos flux de travail principaux sur 9 semaines, intégrés dans vos systèmes existants — et vous ne payez qu'une part de la valeur-temps réellement récupérée. Zéro risque, bénéfice pur.</p>
+        <div class="target-box">
+          <div class="target-box-label">Idéal pour</div>
+          <p>Dirigeants et Directeurs des Opérations dans des entreprises de 20 à 500 salariés (CA 1 M€+) qui savent que leur croissance est freinée par des centaines d'heures de travail manuel, veulent une transformation IA sérieuse, mais n'écriront pas un gros chèque avant d'avoir vu les chiffres.</p>
+        </div>
+      </div>
+      <div class="waitlist-card">
+        <div class="waitlist-card-badge">Complet</div>
+        <h3>Le 9-Week AI Workflow Accelerator</h3>
+        <p class="wl-sub">Cette cohorte est pleine. La prochaine démarre bientôt — inscrivez-vous sur la liste d'attente et nous vous contacterons dès qu'une place se libère.</p>
+        <div class="waitlist-card-divider"></div>
+        <div class="price-display">
+          <div class="price-big">0 € d'avance</div>
+          <div class="price-sub">puis 25 % de la valeur-temps mensuelle documentée récupérée</div>
+        </div>
+        <p class="wl-form-note">Un appel de cadrage gratuit de 30 minutes — nous calculerons ensemble votre base de valeur-temps avant tout engagement.</p>
+        <a class="wl-cta" href="waitlist-fr.html?tier=2">Rejoindre la liste d'attente</a>
+        <div class="wl-note">Sans engagement. Nous vous contacterons à l'ouverture d'une place.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="detail-section">
+    <div class="detail-inner">
+      <div class="eyebrow">Le Processus</div>
+      <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;letter-spacing:-0.03em;color:var(--navy);line-height:1.2;margin-bottom:0.5rem;">Comment se déroulent les 9 semaines</h2>
+      <p style="color:var(--grey-dk);font-size:0.95rem;max-width:580px;">Notre modèle « Value-Share Workflow Automation » indexe nos honoraires directement sur les gains de temps mesurables. Nous ne gagnons que quand vous gagnez.</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-week">Semaines 1–2</div>
+          <div>
+            <h4>Découverte &amp; Cadrage</h4>
+            <p>Des sessions synchrones en direct pour cartographier vos flux, identifier les cibles d'automatisation et définir la base de valeur-temps. C'est là que nous établissons ce que vaut le temps de votre équipe — le chiffre à partir duquel nos honoraires sont calculés.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-week">Semaines 3–8</div>
+          <div>
+            <h4>Construction &amp; Intégration</h4>
+            <p>Des automatisations sur mesure construites et intégrées dans vos systèmes cœur. Votre équipe est prise en main avec des walkthroughs en direct au fur et à mesure du déploiement — pas de grande passation finale.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-week">Semaine 9</div>
+          <div>
+            <h4>Lancement &amp; Passation</h4>
+            <p>Mise en production, formation finale, et activation de votre Tableau de Bord d'Efficacité. À partir de ce moment, le tableau de bord suit les heures économisées et la valeur-temps récupérée — les données exactes à partir desquelles vos honoraires mensuels sont calculés.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-week">En continu</div>
+          <div>
+            <h4>Optimisation Continue</h4>
+            <p>Support par chatbot IA et adaptation continue à l'évolution de vos flux. Pas de frais de redéveloppement, pas d'outils qui prennent la poussière. Tant que vous êtes client, vos automatisations restent à jour avec votre opération.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DELIVERABLES -->
+  <section class="detail-section alt">
+    <div class="detail-inner">
+      <div class="eyebrow">Ce que vous obtenez</div>
+      <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;letter-spacing:-0.03em;color:var(--navy);line-height:1.2;">Tout inclus</h2>
+      <div class="deliverables-list">
+        <div class="deliverable-item">
+          <div class="deliverable-check">&#10003;</div>
+          <div>
+            <h5>Implémentation Complète de l'Automatisation des Workflows</h5>
+            <p>Automatisation de bout en bout de vos flux à plus haute valeur, intégrés dans vos systèmes cœur là où c'est techniquement faisable. Pas un modèle générique — construit autour de votre vraie opération.</p>
+          </div>
+        </div>
+        <div class="deliverable-item">
+          <div class="deliverable-check">&#10003;</div>
+          <div>
+            <h5>Sessions de Cadrage &amp; Onboarding en Direct</h5>
+            <p>Collaboration synchrone pour s'assurer que les automatisations s'adaptent à votre vraie opération. Nous ne disparaissons pas et ne revenons pas 9 semaines plus tard avec un produit fini — vous êtes impliqué tout au long.</p>
+          </div>
+        </div>
+        <div class="deliverable-item">
+          <div class="deliverable-check">&#10003;</div>
+          <div>
+            <h5>Tableau de Bord d'Efficacité</h5>
+            <p>Un tableau de bord en direct montrant les heures économisées, les tâches automatisées et la valeur-temps récupérée. C'est la source de vérité pour vos honoraires mensuels — vous voyez exactement ce que vous payez et pourquoi.</p>
+          </div>
+        </div>
+        <div class="deliverable-item">
+          <div class="deliverable-check">&#10003;</div>
+          <div>
+            <h5>Support IA Spécialisé 24/7</h5>
+            <p>Support continu pour répondre aux questions, et support humain asynchrone pour dépanner et guider votre équipe dans l'intégration des nouveaux flux dans son travail quotidien.</p>
+          </div>
+        </div>
+        <div class="deliverable-item">
+          <div class="deliverable-check">&#10003;</div>
+          <div>
+            <h5>Adaptation Continue</h5>
+            <p>À mesure que vos processus évoluent, nous adaptons les automatisations — pas de frais de redéveloppement, pas de risque d'obsolescence. Vos outils restent pertinents avec l'évolution de votre entreprise.</p>
+          </div>
+        </div>
+        <div class="deliverable-item">
+          <div class="deliverable-check">&#10003;</div>
+          <div>
+            <h5>Kit « AI Adoption Accelerator »</h5>
+            <p>Checklists, guides de démarrage rapide et fiches mémo pour que votre équipe monte en vitesse sans friction dès le premier jour.</p>
+          </div>
+        </div>
+      </div>
+      <div class="bonus-list">
+        <div class="bonus-item">
+          <div class="bonus-star">+</div>
+          <div>
+            <h5>Bonus : Rapport d'Audit de Valeur-Temps</h5>
+            <p>Une décomposition complète de votre temps pré-automatisation — utile au-delà de notre engagement comme document de référence opérationnel de base.</p>
+          </div>
+        </div>
+        <div class="bonus-item">
+          <div class="bonus-star">+</div>
+          <div>
+            <h5>Bonus : Revue d'Optimisation à 90 Jours</h5>
+            <p>Une session en direct 90 jours après le lancement pour examiner les données du tableau de bord, identifier de nouvelles cibles d'automatisation et planifier la phase suivante.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUARANTEES -->
+  <section class="detail-section">
+    <div class="detail-inner">
+      <div class="eyebrow">Nos Garanties</div>
+      <h2 style="font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;letter-spacing:-0.03em;color:var(--navy);line-height:1.2;">Nous ne gagnons que quand vous gagnez</h2>
+      <div class="guarantee-block" style="margin-top:2rem;">
+        <div class="guarantee-icon">&#10003;</div>
+        <div>
+          <h4>Tarification Indexée sur la Performance</h4>
+          <p>Vous ne payez rien d'avance. Nos 25 % de récurrent sont calculés uniquement sur la valeur-temps documentée récupérée — suivie par le tableau de bord que nous déployons. Si nous ne créons pas de valeur mesurable, nos honoraires le reflètent.</p>
+        </div>
+      </div>
+      <div class="guarantee-block">
+        <div class="guarantee-icon">&#10003;</div>
+        <div>
+          <h4>Promesse d'Adaptation Continue</h4>
+          <p>Tant que vous êtes client, nous adaptons vos automatisations aux changements de flux sans frais supplémentaires. Pas de risque d'obsolescence, pas de factures surprises pour maintenir vos outils pertinents.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARE -->
+  <section class="compare-section">
+    <div class="compare-inner">
+      <div class="section-header">
+        <div class="eyebrow">Comparer</div>
+        <h2>Tous nos services</h2>
+        <p>Vous consultez le Tier 2. Comparez-le à nos autres formules.</p>
+      </div>
+      <div class="offers-grid">
+
+        <!-- TIER 1 -->
+        <div class="offer-card">
+          <div class="offer-tier-label">Tier 1</div>
+          <div class="offer-name">Le 7-Day Task Automation Sprint</div>
+          <div class="offer-divider"></div>
+          <ul class="offer-features">
+            <li><span class="feature-check">&#10003;</span> Jusqu'à 10 automatisations déployées en 7 jours</li>
+            <li><span class="feature-check">&#10003;</span> Rapport de cadrage async avant de commencer à construire</li>
+            <li><span class="feature-check">&#10003;</span> Automatisations prêtes à l'emploi — sans intégration cœur de système</li>
+            <li><span class="feature-check">&#10003;</span> Guide de prise en main pour que votre équipe soit opérationnelle immédiatement</li>
+            <li><span class="feature-check">&#10003;</span> Quick Win Scorecard : vos 10 prochaines opportunités identifiées</li>
+          </ul>
+          <div class="offer-price-box">
+            <div class="offer-price">2 000 € d'avance</div>
+            <div class="offer-price-recurring">puis 200 €/mois hébergement &amp; maintenance</div>
+            <div class="offer-guarantee">&#10003; Livraison garantie en 7 jours ou le récurrent est suspendu</div>
+          </div>
+          <a class="offer-cta offer-cta-outline" href="tier1-fr.html">En savoir plus</a>
+        </div>
+
+        <!-- TIER 2 — ACTIVE -->
+        <div class="offer-card active-card">
+          <div class="featured-badge">Le plus populaire</div>
+          <div class="offer-tier-label">Tier 2 &mdash; En cours de consultation</div>
+          <div class="offer-name">Le 9-Week AI Workflow Accelerator</div>
+          <div class="offer-divider"></div>
+          <ul class="offer-features">
+            <li><span class="feature-check">&#10003;</span> Refonte complète des workflows + automatisation intégrée à vos systèmes</li>
+            <li><span class="feature-check">&#10003;</span> Sessions de cadrage et d'onboarding en direct avec votre équipe</li>
+            <li><span class="feature-check">&#10003;</span> Tableau de bord d'efficacité — heures économisées, valeur récupérée</li>
+            <li><span class="feature-check">&#10003;</span> Adaptation continue à l'évolution de vos workflows</li>
+            <li><span class="feature-check">&#10003;</span> Revue d'optimisation à 90 jours post-lancement</li>
+            <li><span class="feature-check">&#10003;</span> Support IA spécialisé 24/7</li>
+          </ul>
+          <div class="offer-price-box">
+            <div class="offer-price">0 € d'avance</div>
+            <div class="offer-price-recurring">puis 25 % de la valeur-temps mensuelle récupérée</div>
+            <div class="offer-guarantee">&#10003; Nous ne facturons que la valeur confirmée par le tableau de bord</div>
+          </div>
+          <div class="offer-cta-book-disabled">Réserver maintenant</div>
+          <div class="soldout-tag"><span>Complet !</span> <a href="waitlist-fr.html?tier=2">Rejoindre la liste d'attente</a></div>
+        </div>
+
+        <!-- TIER 3 -->
+        <div class="offer-card">
+          <div class="offer-tier-label">Tier 3</div>
+          <div class="offer-name">Le 21-Day VIP AI Workflow Overhaul</div>
+          <div class="offer-divider"></div>
+          <ul class="offer-features">
+            <li><span class="feature-check">&#10003;</span> Tout le Tier 2</li>
+            <li><span class="feature-check">&#10003;</span> Découverte en personne dans vos bureaux (Jours 1–5)</li>
+            <li><span class="feature-check">&#10003;</span> Automatisations entièrement sur mesure + intégration cœur de système</li>
+            <li><span class="feature-check">&#10003;</span> Lancement en personne et onboarding équipe (Jours 19–21)</li>
+            <li><span class="feature-check">&#10003;</span> Support humain pendant les heures ouvrées</li>
+            <li><span class="feature-check">&#10003;</span> Session feuille de route IA stratégique + audit de maturité concurrents</li>
+          </ul>
+          <div class="offer-price-box">
+            <div class="offer-price">2 mois de valeur d'avance</div>
+            <div class="offer-price-recurring">puis 40 % de la valeur-temps mensuelle récupérée</div>
+            <div class="offer-guarantee">&#10003; Garantie de présence sur site — remboursement intégral si nous ne venons pas</div>
+          </div>
+          <a class="offer-cta offer-cta-outline" href="tier3-fr.html">En savoir plus</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a class="footer-logo" href="index-fr.html">Slipstream&nbsp;<span>Ops</span></a>
+    <div class="footer-copy">&copy; 2025 Slipstream Ops. Tous droits réservés.</div>
+  </footer>
+
+</body>
+</html>
