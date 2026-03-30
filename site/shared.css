@@ -80,6 +80,7 @@ nav {
   font-size: 0.875rem !important;
   font-weight: 600 !important;
   transition: background 0.2s !important;
+  white-space: nowrap;
 }
 .nav-cta:hover { background: var(--navy-mid) !important; }
 
