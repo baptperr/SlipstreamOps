@@ -492,14 +492,15 @@ footer {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
-  nav { padding: 0 1.25rem; }
+  nav { padding: 0 0.75rem; }
   .nav-links li:not(:last-child) { display: none; }
-  .logo { font-size: 0.9rem; min-width: 0; overflow: hidden; }
+  .logo { font-size: 0.9rem; min-width: 0; overflow: hidden; flex-shrink: 1; }
   .logo-img { height: 24px; }
   .nav-cta {
     padding: 0.45rem 0.7rem !important;
     font-size: clamp(0.65rem, 2.8vw, 0.8rem) !important;
     flex-shrink: 0;
+    max-width: 50vw;
   }
   .offers-grid { grid-template-columns: 1fr; }
   .book-card { padding: 1.75rem; }
