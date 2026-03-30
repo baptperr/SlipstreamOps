@@ -18,6 +18,16 @@
       text-align: center;
       position: relative;
       overflow: hidden;
+      background-image: url('hero-bg.png');
+      background-repeat: no-repeat;
+      background-size: 90% auto;
+      background-position: center center;
+    }
+    @media (max-width: 768px) {
+      .hero { background-size: 140% auto; }
+    }
+    @media (max-width: 480px) {
+      .hero { background-size: 200% auto; }
     }
     .hero::before {
       content: '';
