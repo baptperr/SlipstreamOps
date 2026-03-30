@@ -125,7 +125,6 @@ footer {
   color: var(--grey-dk);
   max-width: 720px;
   margin: 0 auto;
-  white-space: nowrap;
 }
 
 .btn-primary {
