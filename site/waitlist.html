@@ -44,6 +44,7 @@
 
   <nav>
     <a class="logo" href="index.html"><img src="logo.png" alt="" class="logo-img" />Slipstream&nbsp;<span>Ops</span></a>
+    <button class="nav-burger" aria-label="Menu"><img src="hamburger-cutout.png" alt="" style="width:18px;height:auto;display:block;"></button>
     <ul class="nav-links">
       <li class="nav-dropdown"><a href="index.html#offers">Services</a>
         <div class="nav-dropdown-menu">
@@ -53,6 +54,7 @@
         </div>
       </li>
       <li><a href="index.html#how">How it works</a></li>
+      <li><a href="why-this-why-now.html">Why This, Why Now?</a></li>
       <li class="nav-dropdown">
         <a href="#">Market (US)</a>
         <div class="nav-dropdown-menu nav-market-menu">
@@ -91,5 +93,14 @@
     }
   </script>
 
+  <script>
+    (function(){
+      var nav = document.querySelector('nav');
+      var burger = document.querySelector('.nav-burger');
+      if (!burger) return;
+      burger.addEventListener('click', function(e){ e.stopPropagation(); nav.classList.toggle('menu-open'); });
+      document.addEventListener('click', function(e){ if (!nav.contains(e.target)) nav.classList.remove('menu-open'); });
+    })();
+  </script>
 </body>
 </html>

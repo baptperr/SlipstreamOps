@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pourquoi ça, pourquoi maintenant ? | Slipstream Ops</title>
+  <meta name="description" content="L'automatisation des processus n'est plus une décision « attendre et voir ». Voici l'argument complet : pourquoi ces outils, pourquoi cette approche, et pourquoi la fenêtre pour prendre de l'avance sur vos concurrents, c'est maintenant." />
+  <meta property="og:title" content="Pourquoi ça, pourquoi maintenant ? | Slipstream Ops" />
+  <meta property="og:description" content="L'automatisation des processus n'est plus une décision « attendre et voir ». Voici l'argument complet : pourquoi ces outils, pourquoi cette approche, et pourquoi la fenêtre pour prendre de l'avance sur vos concurrents, c'est maintenant." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <style>
+    /* ── PAGE HERO ── */
+    .page-hero {
+      padding: 9rem 2.5rem 5rem;
+      background: var(--navy);
+      text-align: center;
+    }
+    .page-hero .eyebrow { color: var(--teal-lt); }
+    .page-hero h1 {
+      font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      color: var(--white);
+      line-height: 1.15;
+      max-width: 820px;
+      margin: 0 auto 1.5rem;
+    }
+    .page-hero h1 em { font-style: normal; color: var(--teal-lt); }
+    .page-hero .lead {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.65);
+      max-width: 580px;
+      margin: 0 auto;
+      line-height: 1.75;
+    }
+
+    /* ── ARTICLE BODY ── */
+    .article-section { padding: 5rem 2.5rem; }
+    .article-section.alt { background: var(--off); }
+    .article-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .article-inner h2 {
+      font-size: clamp(1.6rem, 3vw, 2.1rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+    }
+    .article-inner h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 2rem 0 0.75rem;
+      letter-spacing: -0.01em;
+    }
+    .article-inner p {
+      font-size: 1rem;
+      color: var(--grey-dk);
+      line-height: 1.8;
+      margin-bottom: 1.1rem;
+    }
+    .article-inner p strong { color: var(--navy); font-weight: 600; }
+
+    /* ── STAT CALLOUTS ── */
+    .stat-callouts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin: 2.5rem 0;
+    }
+    .stat-callout {
+      background: var(--white);
+      padding: 1.75rem 1.5rem;
+      text-align: center;
+    }
+    .article-section.alt .stat-callout { background: var(--white); }
+    .stat-callout-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .stat-callout-number span { color: var(--teal); }
+    .stat-callout-label { font-size: 0.8rem; color: var(--grey-mid); line-height: 1.5; }
+    .article-inner .stat-footnote { font-size: 0.55rem; color: var(--grey-mid); opacity: 0.55; margin-top: -1rem; margin-bottom: 2rem; line-height: 1.5; }
+
+    /* ── POINT LIST ── */
+    .point-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .point-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+    }
+    .article-section.alt .point-item { background: var(--white); }
+    .point-icon {
+      width: 34px; height: 34px;
+      background: rgba(13,115,119,0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--teal);
+      font-weight: 700;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .point-item h4 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 0.25rem; }
+    .point-item p { font-size: 0.875rem; color: var(--grey-dk); line-height: 1.65; margin: 0; }
+
+    /* ── COST CALCULATOR BLOCK ── */
+    .cost-block {
+      background: var(--navy);
+      border-radius: 16px;
+      padding: 1.75rem;
+      margin: 2.5rem 0;
+      color: var(--white);
+    }
+    .cost-block h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+      margin-top: 0;
+    }
+    .cost-rows { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.25rem; }
+    .cost-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+      font-size: 0.8rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .cost-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .cost-row-label { color: rgba(255,255,255,0.6); }
+    .cost-row-value { font-weight: 600; color: var(--white); white-space: nowrap; flex-shrink: 0; }
+    .cost-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      padding-top: 0.875rem;
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+    .cost-total-label { font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.8); }
+    .cost-total-value {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--teal-lt);
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .cost-note { font-size: 0.75rem; color: rgba(255,255,255,0.35); margin-top: 0.625rem; }
+    .cost-cols {
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      gap: 0 1.5rem;
+    }
+    .cost-col-divider { background: rgba(255,255,255,0.12); }
+    .cost-col-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 1.25rem;
+    }
+    @media (max-width: 900px) {
+      .cost-cols { grid-template-columns: 1fr; }
+      .cost-col-divider { display: none; }
+    }
+
+    /* ── CTA SECTION ── */
+    .cta-section {
+      padding: 5rem 2.5rem;
+      background: var(--white);
+      text-align: center;
+    }
+    .cta-inner { max-width: 600px; margin: 0 auto; }
+    .cta-inner h2 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+    .cta-inner p {
+      font-size: 1rem;
+      color: var(--grey-dk);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .cta-buttons { display: flex; gap: 0.875rem; justify-content: center; flex-wrap: wrap; }
+
+    /* ── DIVIDE GRID ── */
+    .divide-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .divide-card {
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+    }
+    .divide-card--early {
+      background: rgba(13,115,119,0.05);
+      border-color: rgba(13,115,119,0.2);
+    }
+    .divide-card--late {
+      background: rgba(15,31,61,0.04);
+      border-color: rgba(15,31,61,0.12);
+    }
+    .divide-card-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .divide-card--early .divide-card-label { color: var(--teal); }
+    .divide-card--late .divide-card-label { color: var(--navy); }
+    .divide-card p { font-size: 0.875rem; color: var(--grey-dk); line-height: 1.7; margin: 0; }
+
+    /* ── PHILOSOPHY CALLOUT ── */
+    .philosophy-callout {
+      background: var(--navy);
+      border-radius: 14px;
+      padding: 1.75rem 2rem;
+      margin: 1.75rem 0;
+      color: var(--white);
+    }
+    .philosophy-callout-text {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--teal-lt);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+    .philosophy-callout p { font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 1.75; margin: 0; }
+
+    @media (max-width: 900px) {
+      .page-hero { padding: 7rem 1.25rem 4rem; }
+      .article-section { padding: 3.5rem 1.25rem; }
+      .stat-callouts { grid-template-columns: 1fr; }
+      .divide-grid { grid-template-columns: 1fr; }
+      .cta-section { padding: 3.5rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="logo" href="index-fr.html"><img src="logo.png" alt="" class="logo-img" />Slipstream&nbsp;<span>Ops</span></a>
+    <button class="nav-burger" aria-label="Menu"><img src="hamburger-cutout.png" alt="" style="width:18px;height:auto;display:block;"></button>
+    <ul class="nav-links">
+      <li class="nav-dropdown"><a href="index-fr.html#offers">Services</a>
+        <div class="nav-dropdown-menu">
+          <a href="tier1-fr.html"><span class="dropdown-tier">Tier 1</span>Le 7-Day Task Automation Sprint</a>
+          <a href="tier2-fr.html"><span class="dropdown-tier">Tier 2</span>Le 9-Week AI Workflow Accelerator</a>
+          <a href="tier3-fr.html"><span class="dropdown-tier">Tier 3</span>Le 21-Day VIP AI Workflow Overhaul</a>
+        </div>
+      </li>
+      <li><a href="index-fr.html#how">Comment ça marche</a></li>
+      <li><a href="why-this-why-now-fr.html" style="color:var(--navy);font-weight:600;">Pourquoi ça, pourquoi maintenant&nbsp;?</a></li>
+      <li class="nav-dropdown">
+        <a href="#">Marché (FR)</a>
+        <div class="nav-dropdown-menu nav-market-menu">
+          <a href="why-this-why-now.html"><span class="dropdown-tier"></span>🇺🇸 USA ($)</a>
+          <a href="why-this-why-now-fr.html"><span class="dropdown-tier"></span>🇫🇷 France (€)</a>
+        </div>
+      </li>
+      <li><a href="index-fr.html#offers" class="nav-cta">Voir nos services</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="eyebrow">L'argument pour agir maintenant</div>
+    <h1>Pourquoi <em>l'automatisation des processus</em>,<br>et pourquoi maintenant&nbsp;?</h1>
+    <p class="lead">Les outils sont là, le ROI est mesurable, et vos concurrents sont déjà en mouvement. Voici l'argument complet.</p>
+  </section>
+
+  <!-- L'OPPORTUNITÉ RÉELLE -->
+  <section class="article-section alt">
+    <div class="article-inner">
+      <div class="eyebrow">L'opportunité réelle</div>
+      <h2>La plupart des entreprises regardent l'IA du mauvais angle</h2>
+      <p>Le discours dominant tourne autour des chatbots et des copilotes. Mais le vrai levier est plus discret : <strong>les centaines d'heures que votre équipe passe chaque mois sur des tâches qui n'auraient jamais dû être manuelles.</strong> Re-saisie de données. Génération de factures. Mises à jour de statut. Du travail qui ressemble à du travail — mais que vos clients ne verront jamais.</p>
+
+      <div class="stat-callouts">
+        <div class="stat-callout">
+          <div class="stat-callout-number">30<span>–40%</span></div>
+          <div class="stat-callout-label">du temps d'équipe moyen perdu en tâches manuelles répétitives¹</div>
+        </div>
+        <div class="stat-callout">
+          <div class="stat-callout-number"><span>~</span>80%</div>
+          <div class="stat-callout-label">de ce temps est automatisable avec les outils disponibles aujourd'hui¹</div>
+        </div>
+        <div class="stat-callout">
+          <div class="stat-callout-number"><span>~</span>500</div>
+          <div class="stat-callout-label">heures productives récupérées par employé par an</div>
+        </div>
+      </div>
+      <p class="stat-footnote">¹ McKinsey Global Institute, 2023 — « The future of work after COVID-19 ». Votre chiffre peut être plus élevé ou plus bas, c'est ce que l'audit identifie.</p>
+
+      <p>Ces heures représentent une capacité que votre équipe ne peut pas diriger vers la vraie croissance — nouveaux clients, meilleur service, travail à plus forte marge. Elles sont enfermées dans des tâches répétitives. Dans une équipe de 20 personnes, ça chiffre vite.</p>
+
+      <div class="cost-block">
+        <h3>Ce que ça représente pour une équipe de 20 personnes</h3>
+        <div class="cost-cols">
+          <div class="cost-col">
+            <div class="cost-col-label">Temps &amp; Capacité de croissance</div>
+            <div class="cost-rows">
+              <div class="cost-row">
+                <span class="cost-row-label">Heures perdues en tâches manuelles par personne (30% de l'année de travail)</span>
+                <span class="cost-row-value">~600 h / an</span>
+              </div>
+              <div class="cost-row">
+                <span class="cost-row-label">Heures automatisables par personne (80% de ci-dessus)</span>
+                <span class="cost-row-value">~500 h / an</span>
+              </div>
+              <div class="cost-row">
+                <span class="cost-row-label">Capacité libérée sur 20 personnes</span>
+                <span class="cost-row-value">~10 000 h / an</span>
+              </div>
+            </div>
+            <div class="cost-total">
+              <span class="cost-total-label">Capacité de croissance débloquée</span>
+              <span class="cost-total-value">+5 ETP</span>
+            </div>
+            <div class="cost-note">Capacité débloquée à partir de l'équipe que vous avez déjà.</div>
+          </div>
+          <div class="cost-col-divider"></div>
+          <div class="cost-col">
+            <div class="cost-col-label">Valeur salariale équivalente</div>
+            <div class="cost-rows">
+              <div class="cost-row">
+                <span class="cost-row-label">Coût chargé moyen par employé</span>
+                <span class="cost-row-value">~60 000 € / an</span>
+              </div>
+              <div class="cost-row">
+                <span class="cost-row-label">Taux horaire implicite</span>
+                <span class="cost-row-value">~29 € / h</span>
+              </div>
+              <div class="cost-row">
+                <span class="cost-row-label">10 000 h récupérées × 29 €</span>
+                <span class="cost-row-value">~288 000 € / an</span>
+              </div>
+            </div>
+            <div class="cost-total">
+              <span class="cost-total-label">Valeur salariale redirigée vers la croissance</span>
+              <span class="cost-total-value">288k € / an</span>
+            </div>
+            <div class="cost-note">Capacité redirigée des tâches répétitives vers le travail générateur de revenus.</div>
+          </div>
+        </div>
+      </div>
+
+      <p>Ces 10 000 heures sont la marge de manœuvre dont votre prochaine phase de croissance a besoin. Elles existent déjà dans votre organisation — elles sont juste dépensées sur les mauvaises choses.</p>
+    </div>
+  </section>
+
+  <!-- LA FRACTURE -->
+  <section class="article-section">
+    <div class="article-inner">
+      <div class="eyebrow">La fracture</div>
+      <h2>L'avantage inéquitable — et l'étranglement de ceux qui attendent</h2>
+      <p>En ce moment, une fracture silencieuse s'ouvre dans chaque secteur traditionnel.</p>
+      <div class="divide-grid">
+        <div class="divide-card divide-card--early">
+          <div class="divide-card-label">Les pionniers</div>
+          <p>Ces entreprises opèrent avec un avantage inéquitable. Commandes traitées plus vite, clients répondus instantanément, marges bien plus larges. Le fossé qu'elles creusent aujourd'hui sera quasi impossible à combler dans un an.</p>
+        </div>
+        <div class="divide-card divide-card--late">
+          <div class="divide-card-label">La majorité tardive</div>
+          <p>Attendre que l'automatisation soit la norme, c'est l'adopter pour survivre — pas pour gagner. D'ici là, les pionniers auront investi leurs nouvelles marges pour baisser leurs prix, capter des parts de marché, et vous surpasser sur tous les fronts.</p>
+        </div>
+      </div>
+      <p><strong>Le moment d'agir, ce n'est pas dans six mois quand vos concurrents auront compris. Le moment, c'est maintenant.</strong></p>
+    </div>
+  </section>
+
+  <!-- POURQUOI MAINTENANT -->
+  <section class="article-section alt">
+    <div class="article-inner">
+      <div class="eyebrow">Pourquoi maintenant</div>
+      <h2>La fenêtre pour prendre de l'avance est ouverte — mais pas indéfiniment</h2>
+      <p>Les outils qui rendent tout ça possible ne sont fiables et accessibles que depuis deux ans. Avant, automatiser les processus métier était coûteux, fragile, et hors de portée pour la plupart des entreprises. Ce n'est plus le cas — et ça a ouvert une fenêtre :</p>
+      <div class="point-list">
+        <div class="point-item">
+          <div class="point-icon">&#10003;</div>
+          <div>
+            <h4>Les pionniers capitalisent en ce moment même</h4>
+            <p>Les entreprises qui ont automatisé en 2023–2024 ont déjà récupéré des centaines d'heures de capacité d'équipe et les ont réinvesties dans leur croissance. L'écart entre elles et les entreprises qui tournent encore en manuel se creuse chaque mois.</p>
+          </div>
+        </div>
+        <div class="point-item">
+          <div class="point-icon">&#10003;</div>
+          <div>
+            <h4>Les coûts de recrutement augmentent ; les coûts d'automatisation restent stables</h4>
+            <p>Ajouter des effectifs pour absorber le travail manuel devient plus coûteux chaque année. L'automatisation remplace ce coût une seule fois et tourne indéfiniment.</p>
+          </div>
+        </div>
+        <div class="point-item">
+          <div class="point-icon">&#10003;</div>
+          <div>
+            <h4>L'efficacité devient un facteur que vos clients remarquent</h4>
+            <p>Délais de réponse, taux d'erreur, rapidité d'exécution. Ce qui était autrefois une métrique interne devient un critère de choix visible sur le marché.</p>
+          </div>
+        </div>
+      </div>
+      <p>Les entreprises qui agissent cette année ne seront pas seulement plus efficaces — elles auront tellement d'avance que les rattraper sera quasi impossible.</p>
+    </div>
+  </section>
+
+  <!-- LE COÛT CACHÉ -->
+  <section class="article-section">
+    <div class="article-inner">
+      <div class="eyebrow">Le coût caché</div>
+      <h2>Le vrai coût du quotidien</h2>
+      <p>Pensez aux tâches les plus ennuyeuses de votre équipe — copier des données d'un e-mail vers un tableur, générer des factures à la main, déplacer des infos d'un système à l'autre.</p>
+      <p>Ces tâches ne sont pas juste inefficaces. Elles nuisent activement à votre entreprise :</p>
+      <div class="point-list">
+        <div class="point-item">
+          <div class="point-icon">&#10007;</div>
+          <div>
+            <h4>Le turnover des bons éléments</h4>
+            <p>Les bons profils détestent se sentir comme des robots. Journées de saisie sans intérêt = épuisement, puis départ.</p>
+          </div>
+        </div>
+        <div class="point-item">
+          <div class="point-icon">&#10007;</div>
+          <div>
+            <h4>Le piège du recrutement</h4>
+            <p>À chaque départ, des milliers d'euros et des mois de productivité perdus à recruter et former un remplaçant — pour recommencer le même cycle.</p>
+          </div>
+        </div>
+        <div class="point-item">
+          <div class="point-icon">&#10007;</div>
+          <div>
+            <h4>La qualité qui dérape</h4>
+            <p>Quand les humains font des tâches répétitives et fastidieuses, ils font des erreurs. La qualité de service baisse, et les clients le remarquent.</p>
+          </div>
+        </div>
+      </div>
+      <p>L'automatisation prend en charge la partie robotique du travail. Elle gère la répétition pour que votre équipe puisse se concentrer sur ce pour quoi elle a été recrutée : résoudre des problèmes complexes, construire des relations, délivrer un service exceptionnel.</p>
+    </div>
+  </section>
+
+  <!-- POURQUOI ÇA -->
+  <section class="article-section alt">
+    <div class="article-inner">
+      <div class="eyebrow">Pourquoi ça</div>
+      <h2>Pourquoi l'automatisation des processus — et pas une autre initiative IA</h2>
+      <p>Les entreprises qui explorent l'IA ne manquent pas d'options — stratégies, copilotes, équipes IA internes. La plupart sont coûteuses, lentes, et difficiles à mesurer. L'automatisation des processus est différente :</p>
+
+      <div class="point-list">
+        <div class="point-item">
+          <div class="point-icon">&#10003;</div>
+          <div>
+            <h4>Elle s'appuie sur vos systèmes existants</h4>
+            <p>Pas de migration risquée. Les automatisations se connectent aux outils que vous utilisez déjà — pas de nouvelle plateforme à adopter à l'échelle de l'entreprise.</p>
+          </div>
+        </div>
+        <div class="point-item">
+          <div class="point-icon">&#10003;</div>
+          <div>
+            <h4>Le ROI est entièrement mesurable</h4>
+            <p>Vous voyez le chiffre avant qu'on construise quoi que ce soit, et vous le vérifiez chaque mois sur votre tableau de bord d'efficacité.</p>
+          </div>
+        </div>
+        <div class="point-item">
+          <div class="point-icon">&#10003;</div>
+          <div>
+            <h4>Ça produit des effets cumulatifs sans investissement continu</h4>
+            <p>Une automatisation tourne toute seule chaque jour — sans supervision, sans relances. La valeur se cumule tant que le processus tourne.</p>
+          </div>
+        </div>
+        <div class="point-item">
+          <div class="point-icon">&#10003;</div>
+          <div>
+            <h4>Les résultats arrivent en jours, pas en trimestres</h4>
+            <p>Notre sprint Tier 1 livre des automatisations opérationnelles en 7 jours. Le programme Tier 2 sur 9 semaines vous amène de l'audit au déploiement complet — avec chaque heure récupérée tracée sur votre tableau de bord dès le premier jour.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- NOTRE PHILOSOPHIE -->
+  <section class="article-section">
+    <div class="article-inner">
+      <div class="eyebrow">Notre philosophie</div>
+      <h2>Un outil de croissance, pas de licenciements</h2>
+      <p>Il existe un malentendu tenace : l'automatisation serait un outil pour réduire les effectifs. Pour nous, c'est exactement le contraire. <strong>L'automatisation est un outil de croissance.</strong></p>
+      <div class="philosophy-callout">
+        <div class="philosophy-callout-text">Mêmes employés, capacité radicalement supérieure.</div>
+        <p>Vous n'automatisez pas pour remplacer trois employés. Vous automatisez pour que ces trois employés aient désormais la capacité opérationnelle de dix — gérant deux fois plus de clients sans faire une minute d'heure supplémentaire.</p>
+      </div>
+      <h3>La réalité de la sécurité de l'emploi</h3>
+      <p>Vos employés craignent peut-être que l'IA les remplace. La vérité : <strong>le meilleur moyen pour que tout le monde perde son emploi, c'est que l'entreprise reste inefficace.</strong> Si votre entreprise refuse d'évoluer, elle sera étranglée par des concurrents plus rapides et plus efficaces. <em>C'est comme ça que les emplois disparaissent.</em></p>
+      <p><em>L'IA ne vous remplacera pas. Votre concurrent qui adopte l'IA en premier, si.</em></p>
+      <p>Un collaborateur équipé d'automatisation devient tellement plus productif qu'il devient profitable d'agrandir l'équipe. Vous protégez vos collaborateurs en leur donnant les outils pour gagner.</p>
+    </div>
+  </section>
+
+  <!-- SI VOUS ÊTES SCEPTIQUE -->
+  <section class="article-section alt">
+    <div class="article-inner">
+      <div class="eyebrow">Si vous êtes sceptique</div>
+      <h2>Sceptique ? On ne vous en veut pas.</h2>
+      <p>Si vous hésitez sur la sécurité, la fiabilité ou la complexité des outils IA, vous n'êtes pas seul. Vous imaginez peut-être des refontes IT massives, des mois d'intégration, ou des décisions sensibles confiées à une machine.</p>
+      <p>Ce n'est pas comme ça que nous travaillons.</p>
+      <div class="point-list">
+        <div class="point-item">
+          <div class="point-icon">&#10003;</div>
+          <div>
+            <h4>Pas de migration</h4>
+            <p>Nous ne remplaçons pas les logiciels que vous utilisez déjà. Nous construisons des ponts invisibles entre eux — votre équipe continue à travailler exactement comme avant, juste sans les étapes manuelles.</p>
+          </div>
+        </div>
+        <div class="point-item">
+          <div class="point-icon">&#10003;</div>
+          <div>
+            <h4>Le jugement humain reste en place</h4>
+            <p>Nous ne remplaçons pas votre expertise. Nous automatisons les tâches ingrates <em>autour</em> de votre expertise. Les décisions finales restent toujours entre des mains humaines.</p>
+          </div>
+        </div>
+        <div class="point-item">
+          <div class="point-icon">&#10003;</div>
+          <div>
+            <h4>On commence petit, on avance vite</h4>
+            <p>Nous n'essayons pas de changer toute votre entreprise en un jour. Nous identifions un seul goulot d'étranglement frustrant et nous le résolvons. Peu d'effort, zéro friction, résultats immédiats.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-inner">
+      <div class="eyebrow">En résumé</div>
+      <h2>L'époque où l'on payait des humains pour faire le travail d'un logiciel est terminée.</h2>
+      <p>La technologie est là — fiable, accessible, taillée pour des entreprises de votre taille. Chaque semaine d'attente, c'est une semaine de masse salariale dépensée sur ce qu'un logiciel pourrait gérer. La première étape tient en une conversation.</p>
+      <div class="cta-buttons">
+        <a class="btn-primary" href="tier1-fr.html">Commencer par le sprint 7 de jours</a>
+        <a class="btn-secondary" href="index-fr.html#offers">Voir tous nos services</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a class="footer-logo" href="index-fr.html">Slipstream&nbsp;<span>Ops</span></a>
+    <div class="footer-copy">&copy; 2025 Slipstream Ops. All rights reserved.</div>
+  </footer>
+
+  <script>
+    (function(){
+      var nav = document.querySelector('nav');
+      var burger = document.querySelector('.nav-burger');
+      if (!burger) return;
+      burger.addEventListener('click', function(e){ e.stopPropagation(); nav.classList.toggle('menu-open'); });
+      document.addEventListener('click', function(e){ if (!nav.contains(e.target)) nav.classList.remove('menu-open'); });
+    })();
+  </script>
+</body>
+</html>
